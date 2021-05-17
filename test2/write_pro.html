@@ -1,0 +1,91 @@
+<? 
+include "db.html";
+
+
+if(!isset($_POST['page']) && $_POST['page'] == "") {
+	$page = 1;
+} else {
+	$page = $_POST['page'];
+}
+//echo "<pre>";
+//echo strrchr("Hello world!",111); // ASCII코드 111은 알파벳 'o' strrchr("문자열","시작문자열") o world!
+//echo "<pre>";
+//echo strrchr("Hello world! What a beautiful day!",What); //strrchr("문자열","시작문자열") what a beautiful day!
+//$rest = substr("abcdef", 0, -1);  // returns "abcde"
+//$rest = substr("abcdef", 2, -1);  // returns "cde"
+//$rest = substr("abcdef", 4, -4);  // returns false
+//strtolower() - 소문자로 치환된 문자열 반환
+//print_r($_POST);
+
+
+
+$move = $_SERVER['DOCUMENT_ROOT']."/test2/uploads/";
+$filename = $_FILES['userfile']['name'];
+$filetype = $_FILES['userfile']['type'];
+$filetmp_name = $_FILES['userfile']['tmp_name'];
+$filesize = $_FILES['userfile']['size'];
+$file_ext = strtolower(substr(strrchr($filename, "."), 1));
+
+do { // 임의의 중복되지 않는 화일명을 구한다.
+			$new_file_name = "ax_".rand(1000000000,9999999999).".".$file_ext;
+			if (!file_exists($move.$new_file_name)) {
+				break;
+			}
+		} while(1);
+
+$uploadfile = $move.$new_file_name;
+
+$bno = $_POST['num'];
+$date = date('Y-m-d');
+
+if($bno >= 1){
+	$query = "update hanjae_board set
+				hj_check='$_POST[radio]',
+				hj_writer='$_POST[writer]',
+				hj_title='$_POST[title]',
+				hj_content='$_POST[content]',
+				hj_wdate='$date'
+				where num='".$bno."'";
+	$result = mysql_query($query, $connect);
+	if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
+	$filename = $_FILES['userfile']['name'];
+	$filetype = $_FILES['userfile']['type'];
+	$filetmp_name = $_FILES['userfile']['tmp_name'];
+	$filesize = $_FILES['userfile']['size'];
+
+	$queryfile = "insert into hanjae_file(fid, name, newfilename, type, tmp_name, size)
+				  value('$bno', '$filename', '$new_file_name', '$filetype', '$filetmp_name', '$filesize')";
+	$resultfile = mysql_query($queryfile, $connect);
+	}
+}else{
+	$query = "insert into hanjae_board(hj_check, hj_writer, hj_title, hj_content, hj_wdate) 
+			  values('$_POST[radio]', '$_POST[writer]', '$_POST[title]', '$_POST[content]', '$date')";
+	$result = mysql_query($query, $connect);
+	$query = "select last_insert_id()";
+	$result = mysql_query($query, $connect);
+	$insertid = @mysql_fetch_array($result);
+	$bno = $insertid[0];
+	if(move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)){
+	$filename = $_FILES['userfile']['name'];
+	$filetype = $_FILES['userfile']['type'];
+	$filetmp_name = $_FILES['userfile']['tmp_name'];
+	$filesize = $_FILES['userfile']['size'];
+
+	$queryfile = "insert into hanjae_file(fid, name, newfilename, type, tmp_name, size)
+				  value('$bno', '$filename', '$new_file_name', '$filetype', '$filetmp_name', '$filesize')";
+	$resultfile = mysql_query($queryfile, $connect);
+}
+}
+
+
+
+
+$category=$_POST['category'];
+$sField=$_POST['sField'];
+$sWord=$_POST['sWord'];
+?>
+
+<script>
+alert("등록되었습니다.");
+location.href="view.html?num="+"<?=$bno?>"+"&category="+"<?=$category?>"+"&sField="+"<?=$sField?>"+"&sWord="+"<?=$sWord?>"+"&page="+"<?=$page?>";
+</script>

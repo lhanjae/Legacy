@@ -1,0 +1,141 @@
+<?
+include "db.html";
+
+
+if(!isset($_GET['page']) && $_GET['page'] == "") {
+	$page = 1;
+} else {
+	$page = $_GET['page'];
+}
+
+
+$bno = $_GET['num'];
+if(isset($bno) && $bno != ""){
+
+$query = "select * from hanjae_board where num='".$bno."'";
+$result = mysql_query($query, $connect);
+$row = @mysql_fetch_array($result);
+
+$query1 = "select * from hanjae_file where fid='".$row['num']."'";
+$result1 = @mysql_query($query1,$connect);
+$query2= "select count(*) from hanjae_file where fid='".$row['num']."'";
+$result2= mysql_fetch_array(@mysql_query($query2,$connect));
+$filecount = $result2[0];
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>dev.farmzone.kr</title>
+
+	<!-- Google Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+	<link href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css" rel="stylesheet"> 
+
+	<!-- Css -->
+	<link rel="stylesheet" href="/css/import.css" media="all"/>
+
+	<!-- js -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/jquery.ui.js"></script>
+	<script src="/js/bootstrap.min.js"></script> 
+
+</head>
+<body>
+	<div class="container oh" style="margin-top:50px;">
+		<!-- 내용시작 -->
+<form method="post" enctype="multipart/form-data" action="write_pro.html"  >
+		<div class="subContents board_write">
+			<div class="row">
+			<input type="hidden" name="category" value="<?=$_GET['category']?>" />
+			<input type="hidden" name="sField" value="<?=$_GET['sField']?>" />
+			<input type="hidden" name="sWord" value="<?=$_GET['sWord']?>" />
+			<input type="hidden" name="page" value="<?=$page?>" />
+			<input type="hidden" name="num" value="<?=$bno?>" />
+				<h3 class="title_type1">글쓰기</h3>
+				<ul class="pd_info bg-light mt-10">
+					<li>1. 파일업로드</li>
+					<li>2. 모든 항목에 대한 유효성검사 </li>
+					<li>3. 라디오 버튼은 게시판 카테고리 구분 </li>
+				</ul>
+				<table class="table_type3 mt-20">
+					<tbody>
+						<tr>
+							<td>
+								<input type="radio" name="radio" id="radio1" value="radio1" <?=isset($row['hj_check']) && $row['hj_check'] == "radio1" ? "checked" : ""?> 
+								required/>
+								<label for="radio1">radio1</label>
+								<input type="radio" name="radio" id="radio2" value="radio2" <?=isset($row['hj_check']) && $row['hj_check'] == "radio2" ? "checked" : ""?> />
+								<label for="radio2">radio2</label>
+								<input type="radio" name="radio" id="radio3" value="radio3" <?=isset($row['hj_check']) && $row['hj_check'] == "radio3" ? "checked" : ""?> />
+								<label for="radio3">radio3</label>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="" class="write_tit">작성자</label>
+								<input type="text" name="writer" class="tit_input" value="<?=isset($row['hj_writer']) && $row['hj_writer'] != "" ? $row['hj_writer'] : ""?>"  required/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label for="" class="write_tit">제 목</label>
+								<input type="text" name="title" class="tit_input" value="<?=isset($row['hj_title']) && $row['hj_title'] != "" ? $row['hj_title'] : ""?>" required/>
+							</td>
+						</tr>
+						<?
+						if($filecount > 0){
+						while($filerow = @mysql_fetch_array($result1)){
+						?>
+						<tr>
+							<td>
+								<label for="userfile" class="write_tit">첨부파일</label>
+								<span><?=$filerow['name']?></span>
+
+								<button type="button" class="btn" onclick="filedelete('<?=$filerow['fid']?>', '<?=$row['num']?>', '<?=$_GET['category']?>','<?=$_GET['sField']?>','<?=$_GET['sWord']?>','<?=$page?>');">삭제</button>
+							</td>
+						</tr>
+						<?
+						}
+						}else{
+						?>
+						<tr>
+							<td>
+								<label for="userfile" class="write_tit">첨부파일</label>
+								<input type="file" name="userfile" id="userfile" class="tit_input" style="padding:0;" value=""/>
+							</td>
+						</tr>
+						<?
+						}	
+						?>
+						<tr>
+							<td>
+								<label for="" class="write_tit">내 용</label>
+								<textarea class="tit_input" name="content" style="height:300px;" required><?=isset($row['hj_content']) && $row['hj_content'] != "" ? $row['hj_content'] : ""?></textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table><!-- table_type3 -->
+				<div class="text-center mt-30">
+					<a href="list.html?page=<?=$page?>&category=<?=$_GET['category']?>&sField=<?=$_GET['sField']?>&sWord=<?=$_GET['sWord']?>" class="pd_btn btn">목 록</a>
+					<button class="pd_btn btn" type="submit">등 록</button>
+				</div>
+			
+			</div><!--end .row-->
+		</div><!-- end .subContents -->
+		<!-- 내용끝 -->
+</form>
+	</div>
+</body>
+</html>
+<script>
+function filedelete(fid,num,category,sField,sWord,page){
+	location.href="filedelete.html?fid="+fid+"&num="+num+"&category="+category+"&sField="+sField+"&sWord="+sWord+"&page="+page;
+}
+</script>
+

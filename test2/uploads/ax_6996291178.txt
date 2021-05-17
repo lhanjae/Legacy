@@ -1,0 +1,8 @@
+1. 사업신청 메뉴 url등록
+- http://ihanwooshf.farmzone.kr/mobile/main/applyMenu
+- /application/views/mobile/applyMenu.php
+2. 각메뉴 컨트롤러에 모바일접속 추가
+3. 모바일 view폴더에 각메뉴 추가
+4. 각 파일 확인 후 폴더 명 변경 
+- 예)beefTaste -> beefShare
+- 각 컨트롤러 dataList 에 progress_code 추가

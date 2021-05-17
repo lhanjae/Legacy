@@ -1,0 +1,193 @@
+<?
+include "db.html";
+include "function.html";
+
+
+if(!isset($_GET['page']) && $_GET['page'] == "") {
+	$page = 1;
+} else {
+	$page = $_GET['page'];
+}
+
+$pageSize = 5; //한 페이지에 보여질 게시물의 수
+$blockSize = 5; //페이지 나누기에 표시될 페이지 수
+
+
+$page_val = "?category=".$_GET['category']."&sField=".$_GET['sField']."&sWord=".$_GET['sWord'];
+
+$where = "";
+if(isset($_GET['category']) && $_GET['category'] != "") {
+	$where .= " AND `hj_check` = '".($_GET['category'])."'";
+}
+
+if($_GET['sField'] == 'all'){
+	$where .= " and (hj_title like '%".mysql_real_escape_string($_GET['sWord'])."%' or hj_content like '%".mysql_real_escape_string($_GET['sWord'])."%')";
+}
+else
+{
+	if((isset($_GET['sField']) && $_GET['sField'] != "") && (isset($_GET['sWord']) && $_GET['sWord'] != "")) {
+	$where .= " AND `".$_GET['sField']."` LIKE '%".mysql_real_escape_string($_GET['sWord'])."%'";
+		}
+	else
+	{
+	if((isset($_GET['sWord']) && $_GET['sWord'] != "")){
+	$where .= " AND  hj_title  LIKE '%".mysql_real_escape_string($_GET['sWord'])."%'";
+		}	
+	}
+}
+
+$limit = ($page - 1) * $pageSize;
+// SQL_CALC_FOUND_ROWS는 쿼리결과의 전체 row 수를 limit 관계없이 임시로 저장
+$query = "SELECT SQL_CALC_FOUND_ROWS * FROM hanjae_board WHERE 1=1 ".$where." ORDER BY num DESC LIMIT ".$limit.", ".$pageSize."";
+$result = @mysql_query($query, $connect);
+$rscount = @mysql_fetch_array(@mysql_query("SELECT FOUND_ROWS()"));// 게시물의 총 열의 값
+$totCount = $rscount[0]; //총 게시물 수 
+
+
+$paging = paging_view($totCount, $page, $pageSize, $blockSize, $page_val);
+
+?>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>dev.farmzone.kr</title>
+
+	<!-- Google Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+	<link href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css" rel="stylesheet"> 
+
+	<!-- Css -->
+	<link rel="stylesheet" href="/css/import.css" media="all"/>
+
+	<!-- js -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/jquery.ui.js"></script>
+	<script src="/js/bootstrap.min.js"></script> 
+
+</head>
+<body>
+
+	<div class="container oh" style="margin-top:50px;">
+		<!-- 내용시작 -->
+		<div class="subContents news">
+			<div class="row">
+				<div class="relative board_search">
+
+					<em class="list_totalNum">전체 : <?=$totCount?>개 (<b><?=$page?> / <?=$paging[1]?>page</b>)</em>
+
+						<div class="srh_box float-right">
+						<form method="get" id="sForm">
+						<input type="hidden" name="page" value="<?=$page?>" />
+						<input type="hidden" name="num" value="<?$_GET['num']?>" />
+						<div class="select_bx">
+							<select class="search_sel" name="category" id="category" title="검색범위 선택">
+								<option value="">카테고리 선택</option>
+								<option value="radio1" <?=$_GET['category'] == "radio1" ? "selected" : ""?>>radio1</option>
+								<option value="radio2" <?=$_GET['category'] == "radio2" ? "selected" : ""?>>radio2</option>
+								<option value="radio3" <?=$_GET['category'] == "radio3" ? "selected" : ""?>>radio3</option>
+							</select>
+						</div>
+
+						<div class="select_bx">
+							<select class="search_sel" name="sField" id="sField" title="검색범위 선택">
+								<option value="">검색범위 선택</option>
+								<option value="all" <?=$_GET['sField'] == "all" ? "selected" : ""?>>제목+내용</option>
+								<option value="hj_title" <?=$_GET['sField'] == "hj_title" ? "selected" : ""?>>제목</option>
+								<option value="hj_content" <?=$_GET['sField'] == "hj_content" ? "selected" : ""?>>내용</option>
+							</select>
+						</div>
+
+						<div class="relative nav-search" role="search">
+
+							<input type="text" placeholder="검색어를 입력해주세요" name="sWord" id="sWord" value="<?=isset($_GET['sWord']) && $_GET['sWord'] != "" ? $_GET['sWord'] : ""?>" />
+
+							<label for="sWord" class="ally-hidden">검색</label>
+							<a href="javascript:$('#sForm').submit();">
+								<i class="fa fa-search search-trigger"></i>
+								<span class="ally-hidden">검색</span>
+								<!-- <i class="fa fa-times search-close"></i> -->
+							</a>					
+						</div><!-- end .nav-search -->	
+						 
+
+				</div><!-- end .board_search --><div class="clear"></div>
+
+				<table class="news res table_type1 mt-20">
+					<thead>
+						<tr>
+							<th scope="col">번호</th>
+							<th scope="col">카테고리</th>
+							<th scope="col">제목</th>
+							<th scope="col">작성자</th>
+							<th scope="col">작성일자</th>
+							<th scope="col">조회수</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 게시글 있을 때 -->
+						<?
+						if ($totCount > 0){
+						$i = 0;
+						while($row=@mysql_fetch_array($result))
+						{
+						$viewno = $totCount - ($i++ + $limit);
+						$query2= "select count(*) from hanjae_file where fid='".$row['num']."'";
+						$result2= mysql_fetch_array(@mysql_query($query2,$connect));
+						$filecount = $result2[0];
+						?>
+						<tr>
+							<th scope="row" class="w7p"><a href=""><span><?=$viewno?></span></a></th>
+							<td class="w10p"><?=$row[hj_check]?></td>
+							<td class="w50p text-left text-indent">
+								<!--<? 
+								if($row['depth'] > 0) echo "<img height=1 width=" . $row['depth']*7 . ">└"; 
+								?>-->
+								<a href="view.html?num=<?=$row['num']?>&page=<?=$page?>&category=<?=$_GET['category']?>&sField=<?=$_GET['sField']?>&sWord=<?=$_GET['sWord']?>"><?=strip_tags($row['hj_title'])?></a>
+								<?
+								if($filecount > 0){
+								?>
+								<i class="fa fa-paperclip file_icon"><span class="ally-hidden">첨부파일이 있습니다.</span></i>
+								<?
+								}	
+								?>
+								
+								<!--<img src="/images/new_icon.gif" alt="신규게시물아이콘" class="new_icon">-->
+								
+							</td>
+							<td class="w12p"><?=$row['hj_writer']?></td>
+							<td class="w12p"><?=$row['hj_wdate']?></td>
+							<td class="w7p"><?=$row['hj_view']?></td>
+						</tr>
+						<?
+							}
+						} else {
+						?>
+						<!-- 게시글 없을 때 -->
+						<tr>
+							<th scope="row" colspan="6">해당내용이 없습니다.</th>
+						</tr>
+						<?
+						}
+						?>
+					</tbody>
+				</table>
+				
+				<div class="paging_btn">
+					<div class="btn-group"><!-- .active = title="현재위치" -->
+						<?=$paging[0];?>
+					</div>
+					<div class="btn-write"><a class="btn" href="write.html">글쓰기</a></div>
+				</div><!-- end .paging_btn -->
+
+			</div><!--end .row-->
+
+		</div><!-- end .subContents -->
+		<!-- 내용끝 -->
+	</div><!-- end .Container -->
+
+</body>
+</html>

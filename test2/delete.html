@@ -1,0 +1,25 @@
+<?
+include "db.html";
+
+
+if(!isset($_GET['page']) && $_GET['page'] == "") {
+	$page = 1;
+} else {
+	$page = $_GET['page'];
+}
+
+$num=$_GET['num'];
+$category=$_GET['category'];
+$sField=$_GET['sField'];
+$sWord=$_GET['sWord'];
+
+$query = "delete from hanjae_board where num=".$num."";
+$result = mysql_query($query, $connect)
+
+?>
+
+<script>
+
+alert("삭제되었습니다.");
+location.href="list.html?category="+"<?=$category?>"+"&sField="+"<?=$sField?>"+"&sWord="+"<?=$sWord?>"+"&page="+"<?=$page?>";
+</script>

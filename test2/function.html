@@ -1,0 +1,51 @@
+<?
+function paging_view($totCount, $page, $pageSize, $blockSize, $page_var) {
+
+	$totPage = 0;			// 전체페이지수
+	$currentPage = $page;	// 현재페이지
+	$viewCount = $pageSize;	// 페이지별 게시물 수
+
+	$totPage = ceil($totCount / $viewCount);// 총게시물 수 / 페이지별 게시물 수
+	$totblock = ceil($totPage / $blockSize);// 총게시물 수 / 한 페이지 게시물 수
+	$block = ceil($page / $blockSize);// 현재페이지 / 한 페이지 게시물 수
+
+	$first_blockpage = ($block - 1) * $blockSize;
+	$last_blockpage = $block * $blockSize;
+
+	if($last_blockpage > $totPage) {
+		$last_blockpage = $totPage;
+	}
+	if($totPage < 1) {
+		$totPage = 1;
+	}
+
+	$prev = ($totPage == 1 || $page == 1) ? 1 : ($page - 1);
+	$next = ($totPage == 1 || $page == $totPage) ? $totPage : ($page + 1);
+
+	$prev_page = $prev;
+	$next_page = $next;
+
+	$page_html = "";
+
+	if($currentPage > 1) {														//$page_var=주소
+		$page_html .= "<button class='btn' type='button' onclick=\"location.href='".$page_var."&page=1'\"><i class='fa fa-angle-double-left'></i><span class='ally-hidden'>제일 앞으로</span></button>";
+		$page_html .= "<button class='btn' type='button' onclick=\"location.href='".$page_var."&page=".$prev_page."'\"><i class='fa fa-angle-left'></i><span class='ally-hidden'>한단계 앞으로</span></button>";
+	}
+
+	for($d_page = $first_blockpage + 1; $d_page <= $last_blockpage; $d_page++) {
+		if($page == $d_page) {
+			$page_html .= "<button class='btn active' type='button' title='현재위치'>".$d_page."</button>";
+		} else {
+			$page_html .= "<button class='btn' type='button' onclick=\"location.href='".$page_var."&page=".$d_page."'\">".$d_page."</button>";
+		}
+	}
+
+	if($page < $totPage) {
+		$page_html .= "<button class='btn' type='button' onclick=\"location.href='".$page_var."&page=".$next_page."'\"><i class='fa fa-angle-right'></i><span class='ally-hidden'>한단계 뒤로</span></button>";
+		$page_html .= "<button class='btn' type='button' onclick=\"location.href='".$page_var."&page=".$totPage."'\"><i class='fa fa-angle-double-right'></i><span class='ally-hidden'>제일 뒤로</span></button>";
+		
+	}
+
+	return array($page_html, $totPage);
+}
+?>

@@ -1,0 +1,22 @@
+<?
+$page=$_GET['page'];
+$category=$_GET['category'];
+$sField=$_GET['sField'];
+$sWord=$_GET['sWord'];
+$num=$_GET['num'];
+echo
+
+$bid=$_GET['bid'];
+?>
+<script language='javascript'>
+var comment
+if(comment = null){
+	location.href="view.html?num="+"<?=$num?>"+"&category="+"<?=$category?>"+"&sField="+"<?=$sField?>"+"&sWord="+"<?=$sWord?>"+"&page="+"<?=$page?>";
+}else{
+comment=prompt("수정할 내용을 적어주세요.");
+}
+</script>
+<?
+$replytext = "<script>document.write(comment);</script>";
+echo $replytext;
+?>

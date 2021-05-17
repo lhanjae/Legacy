@@ -1,0 +1,22 @@
+<?
+include "db.html";
+
+$move = $_SERVER['DOCUMENT_ROOT']."/test2/uploads/";
+
+$queryfile ="SELECT * FROM hanjae_file WHERE fid = '".$_GET['num']."'";
+$resultfile = mysql_query($queryfile,$connect);
+$filerow = mysql_fetch_array($resultfile);
+				if($filerow['newfilename'] != "") {
+					if(is_file($move.$filerow['newfilename'])) {
+						unlink($move.$filerow['newfilename']);
+					}
+				}
+
+$query = "delete from hanjae_file where fid=".$_GET['num']."";
+$result = mysql_query($query,$connect);
+?>
+<script>
+alert("삭제되었습니다.");
+location.href="write.html?num="+"<?=$_GET['num']?>"+"&category="
+				+"<?=$_GET['category']?>"+"&sField="+"<?=$_GET['sField']?>"+"&sWord="+"<?=$_GET['sWord']?>"+"&page="+"<?=$_GET['page']?>";
+</script>

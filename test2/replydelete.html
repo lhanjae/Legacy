@@ -1,0 +1,20 @@
+<?
+include "db.html";
+
+$page=$_GET['page'];
+$category=$_GET['category'];
+$sField=$_GET['sField'];
+$sWord=$_GET['sWord'];
+$num=$_GET['num'];
+
+$bid=$_GET['bid'];
+
+$querydelete = "delete from hanjae_reply where id=".$bid."";
+$result = mysql_query($querydelete, $connect);
+
+?>
+
+<script>
+alert("삭제되었습니다.");
+location.href="view.html?num="+"<?=$num?>"+"&category="+"<?=$category?>"+"&sField="+"<?=$sField?>"+"&sWord="+"<?=$sWord?>"+"&page="+"<?=$page?>";
+</script>

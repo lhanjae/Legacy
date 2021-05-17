@@ -1,0 +1,255 @@
+<?
+include "db.html";
+
+if(!isset($_GET['page']) && $_GET['page'] == "") {
+	$page = 1;
+} else {
+	$page = $_GET['page'];
+}
+
+$bno = $_GET['num'];
+$result = "select * from hanjae_board where num='".$bno."'";
+
+
+@mysql_query("update hanjae_board set hj_view = hj_view + 1 where num='".$bno."'");
+$sql = @mysql_query($result, $connect);
+$row = @mysql_fetch_array($sql);
+
+$query1 = "SELECT SQL_CALC_FOUND_ROWS * FROM hanjae_reply where bid='".$bno."' order by bid desc, thread";
+$result1 = @mysql_query($query1, $connect);
+
+$rscountreply = @mysql_fetch_array(@mysql_query("SELECT FOUND_ROWS()"));
+$totCountreply = $rscountreply[0]; 
+
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>dev.farmzone.kr</title>
+
+	<!-- Google Fonts -->
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+	<link href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css" rel="stylesheet"> 
+
+	<!-- Css -->
+	<link rel="stylesheet" href="/css/import.css" media="all"/> 
+	<!-- js -->
+	<script src="/js/jquery.js"></script>
+	<script src="/js/jquery.ui.js"></script>
+	<script src="/js/bootstrap.min.js"></script> 
+
+</head>
+<body>
+
+	<div class="container oh" style="margin-top:50px;">
+	<input type="hidden" name="category" value="<?=$_GET['category']?>" />
+	<input type="hidden" name="sField" value="<?=$_GET['sField']?>" />
+	<input type="hidden" name="sWord" value="<?=$_GET['sWord']?>" />
+	<input type="hidden" name="page" value="<?=$page?>" />
+		<!-- 내용시작 -->
+		<div class="subContents news">
+			<div class="row">
+				<div class="board_view">
+					<table class="board_view relative">
+						<thead class="vw_info">
+							<tr class="vw_tit">
+								<th scope="colgroup" colspan="6">
+								<h3><?=$row['hj_title']?></h3>
+								</th>
+							</tr>
+							<tr class="vw_date">
+								<th id="dates" scope="row">작성일</th>
+								<td headers="dates" name=""><?=$row['hj_wdate']?></td>
+								<th id="writer" scope="row">작성자</th>
+								<td headers="writer" name="writer"><?=$row['hj_writer']?></td>
+								<th id="ref" scope="row">조회수</th>
+								<td headers="ref"><?=$row['hj_view']?></td>
+							</tr>
+							<?
+							$query = "select * from hanjae_file where fid = '".$row['num']."'";
+							$sql = @mysql_query($query,$connect);
+							$file = @mysql_fetch_array($sql);
+							if($file['num'] != ""){
+
+							?>
+							<tr class="file_bx">
+								<th scope="row" class="file_tit">첨부파일</th>
+								<td class="file_dw" colspan="5">
+									<a href="down.html?num=<?=$_GET['num']?>" download title="클릭 시 첨부파일 다운로드">
+										<i class="fa fa-download"><span class="ally-hidden">다운로드</span></i>
+										<?=$file['name']?>
+									</a>
+								</td>
+							</tr>
+							<?
+							}else{
+							?>
+							<tr class="file_bx">
+								<th scope="row" class="file_tit">첨부파일</th>
+								<td class="file_dw" colspan="5">첨부된 파일이 없습니다.</td>
+							</tr>
+							<?
+							}
+							?>
+						</thead>
+						<tbody class="vw_cont">
+							<tr class="vw_txt">
+								<td colspan="6"><?=$row['hj_content']?></td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="6" class="m8">
+									<div>
+										<button type="button" class="btn m8_btn" onclick="update1('<?=$bno?>','<?=$_GET['category']?>','<?=$_GET['sField']?>','<?=$_GET['sWord']?>','<?=$page?>');">수정</button>
+										<button type="button" class="btn" onclick="delete1('<?=$bno?>','<?=$_GET['category']?>','<?=$_GET['sField']?>','<?=$_GET['sWord']?>','<?=$page?>');">삭제</button>
+									</div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td colspan="6" class="go_lst">
+									<a href="list.html?category=<?=$_GET['category']?>&sField=<?=$_GET['sField']?>&sWord=<?=$_GET['sWord']?>&page=<?=$page?>">목록</a>
+								</td>
+							</tr>
+							<?
+							
+							$result = "select * from hanjae_board where num = (select min(num) from hanjae_board where num > '".$bno."')";
+							$sql = @mysql_query($result, $connect);
+							$next = @mysql_fetch_array($sql);
+
+							$result = "select * from hanjae_board where num = (select max(num) from hanjae_board where num < '".$bno."')";
+							$sql = @mysql_query($result, $connect);
+							$previous = @mysql_fetch_array($sql);
+							?>
+							<tr class="vw_prev">
+								<th scope="row">다음게시물</th>
+								<td colspan="5">
+									<!-- 다음게시물이 없을 때 -->
+									<? if(!isset($next['num']) && $next['num'] == "") { ?>
+									<span class="">다음게시물이 없습니다.</span>
+									<?
+									}else{	
+									?>
+									<!-- 다음게시물이 있을 때 -->
+									<a href="view.html?num=<?=$next['num']?>&page=<?=$_GET['page']?>&category=<?=$_GET['category']?>&sField=<?=$_GET['sField']?>&sWord=<?=$_GET['sWord']?>"><?=$next['hj_title']?></a>
+									<?
+									}	
+									?>
+								</td>
+							</tr>
+							<tr class="vw_prev">
+								<th scope="row">이전게시물</th>
+								<td colspan="5">
+									<!-- 이전게시물이 없을 때 -->
+									<? if(!isset($previous['num']) && $previous['num'] == "") { ?>
+									<span class="">이전게시물이 없습니다.</span>
+									<?
+									}else{	
+									?>
+									<!-- 이전게시물이 있을 때 -->
+									<a href="view.html?num=<?=$previous['num']?>&page=<?=$_GET['page']?>&category=<?=$_GET['category']?>&sField=<?=$_GET['sField']?>&sWord=<?=$_GET['sWord']?>"><?=$previous['hj_title']?></a>
+									<?
+									}
+									?>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+					<?
+					if($totCountreply > 0){
+					while ($reply = @mysql_fetch_array($result1)){
+					?>
+						<div class="subContents news">
+							<div class="">
+								<div class="board_view">
+									<table class="news res table_type1 mt-20">
+										<tbody >
+											<tr class="">
+												<td class="w50p text-left text-indent"><?=$reply['name']?>&nbsp;&nbsp;: <?=$reply['comment']?></td>
+												<td class="w12p"><?=$reply['wdate']?></td>
+												<td class="w13p">
+												<button type="button" class="btn" onclick="deletereply('<?=$reply['passwd']?>','<?=$_GET['num']?>' ,'<?=$reply['id']?>'
+												, '<?=$_GET['category']?>','<?=$_GET['sField']?>','<?=$_GET['sWord']?>','<?=$page?>');">삭제</button>
+												<button type="button" class="btn" onclick="writereply('<?=$reply['thread']?>','<?=$reply['passwd']?>','<?=$_GET['num']?>' ,'<?=$reply['id']?>'
+												, '<?=$_GET['category']?>','<?=$_GET['sField']?>','<?=$_GET['sWord']?>','<?=$page?>');">답글달기</button>
+												</td>
+											</tr>
+										</body>
+									</table>
+								</div>
+							</div>
+						</div>
+					<?
+					}
+					echo "<br>";
+					echo "<br>";
+					}else{
+					?>
+						<table class="news res table_type1 mt-20">
+						<tr>
+							<th scope="row" colspan="6">댓글이 없습니다.</th>
+						</tr>
+						</table>
+					<?
+					echo "<br>";
+					echo "<br>";
+					}	
+					?>
+					<form method="post" action="view_pro.html">
+						<input type="hidden" name="num" value="<?=$_GET['num']?>" />
+						<input type="hidden" name="category" value="<?=$_GET['category']?>" />
+						<input type="hidden" name="sField" value="<?=$_GET['sField']?>" />
+						<input type="hidden" name="sWord" value="<?=$_GET['sWord']?>" />
+						<input type="hidden" name="page" value="<?=$page?>" />
+						<table class="table_type3 mt-20">
+							<tbody>
+								<tr class="vw_tit">댓글달기
+										<td>
+											<label class="write_tit">이름</label>
+											<input type="text" name="name" class="tit_input" value="" required/>
+											<label class="write_tit">비밀번호</label>
+											<input type="password" name="passwd" class="tit_input" value="" required/>
+											<br>
+											<label class="write_tit">내용</label>
+											<textarea class="tit_input" name="replycontent" style="height:100px; width:50%;" value=""></textarea>
+										</td>
+								</tr>
+							</tbody>
+						</table>
+						<div><button class="pd_btn btn" type="submit">등 록</button></div>
+					</form>
+					<!--<? include "comment.html"; ?>-->
+				</div><!-- end .board_view -->
+
+			</div><!--end .row-->
+
+		</div><!-- end .subContents -->
+		<!-- 내용끝 -->
+
+	</div>
+<script>
+function delete1(num,category,sField,sWord,page){
+	location.href="delete.html?num="+num+"&category="+category+"&sField="+sField+"&sWord="+sWord+"&page="+page;
+	}
+function update1(num,category,sField,sWord,page){
+	location.href="write.html?num="+num+"&category="+category+"&sField="+sField+"&sWord="+sWord+"&page="+page;
+}
+function deletereply(passwd, num, bid, category,sField,sWord,page){
+	var prompt_reply = prompt("비밀번호를 입력하세요.");
+	if(prompt_reply == passwd){
+	location.href="replydelete.html?num="+num+"&bid="+bid+"&category="+category+"&sField="+sField+"&sWord="+sWord+"&page="+page;
+	}else{
+		alert("비밀번호가 다릅니다.");
+	}
+}
+function writereply(thread, bid, num, category,sField,sWord,page){
+	
+		location.href="writereply.html?thread="+thread+"&num="+num+"&bid="+bid+"&category="+category+"&sField="+sField+"&sWord="+sWord+"&page="+page;
+}
+</script>
+</body>
+</html>

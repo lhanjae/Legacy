@@ -1,0 +1,1114 @@
+@charset "UTF-8";
+
+@media (min-width: 576px) {
+	.container { max-width: 540px; }
+}
+
+@media (min-width: 768px) {
+	.container { max-width: 750px; }
+}
+@media (min-width: 992px) {
+	.container { max-width: 970px; }
+}
+
+@media (min-width: 1200px) {
+	.container { max-width: 1200px; }
+	
+}
+
+@media (max-width: 1200px) {
+
+	/* 메인 비쥬얼 */
+	.mainVisual {
+		width:100%;
+		margin-right:0;
+		margin-top:20px;
+	}
+
+	/* 지육시세 */
+	.meat_price {
+		width:49%;
+		height:210px;
+		margin-top:20px;
+	}	
+	.meat_price h2 {
+		font-size:1.2rem;
+		text-align:center;
+		padding-top:40px;
+	}
+	.meat_price h3 {
+		padding-bottom:0px;
+		padding-top:10px;
+	}
+
+	.boardMain .panel ul li.first .has_img .basic_img {margin-top: -10%;}
+
+	/* 메인우측 6개 퀵배너 */
+	.kppa_six {
+		width:49%;
+		margin-top:20px;
+	}
+
+	/* 사이트맵 */
+	.sitemap {
+		width:100%;
+		padding:0 20px;
+	}
+	.sitemap_li { 
+		width:32%; 
+		margin-right:2%; 
+	}
+	.sitemap_li:nth-child(3n) {
+		margin-right:0;
+	}
+
+	.sub {
+		width:100%;
+		padding-left:0px;
+	}
+	.page-title .breadcrumb a.home {
+		padding-left:8px;
+		margin-left:0px;
+	}
+	.page-title .breadcrumb .depth p {
+		padding:0 8px;
+	}
+	.leftMenu, .sideBanner {
+		display:none;
+	}	
+
+
+	.footer address {width: 100%;}
+	.footer .copyright {width: 100%;}
+	.footer .footer-logo a {
+		display:none;
+	}
+	.footer p.kppa_wa {
+		display:none;
+	}
+}
+@media (max-width: 1199px) {
+	.boardMain {
+		max-height: 274px;
+		min-height: 274px;
+	}
+	.boardMain .panel ul li a.notice_txt {display: inline-block; vertical-align: bottom; max-width: 70%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; word-break: keep-all;}
+	.boardMain .panel ul li.first {margin-bottom: 20px;}
+	.kppa_photoNews {
+		max-height: 274px;
+		min-height: 274px;
+	}
+	.kppa_photoNews ul li a {
+		padding:145px 20px 0px 20px;
+		display:block;
+	}
+	.kppa_popZone {
+		max-height: 274px;
+		min-height: 274px;
+	}
+	/* 한돈기업정보&홍보영상 */
+	.kppa_infoBanner ul li {
+		max-height:250px;
+		min-height: 250px;
+	}
+}
+@media (max-width: 991px) {
+
+	/* 공지사항 탭메뉴 */
+	.boardMain {
+		width:100%;
+		margin-right:0;
+		margin-bottom:20px;
+		float:none;
+		max-height: 327px;
+		min-height: 327px;
+	}
+	.boardMain .panel ul li.first {margin-bottom: 30px;}
+	.boardMain .panel ul li.first .has_img .basic_img {margin-top: -25%;}
+
+	/* 포토뉴스 */
+	.kppa_photoNews {
+		width:49%;
+		max-height:405px;
+		min-height:405px;
+	}
+	.kppa_photoNews ul li a {
+		padding:270px 20px 0px 20px;
+		display:block;
+	}
+	.kppa_photoNews ul li a h2 {padding: 5px 15px;}
+
+	/* 팝업존 */
+	.kppa_popZone {
+		width:49%;
+		max-height:405px;
+		min-height:405px;
+		float:right;
+	}
+
+	/* 월간한돈 & 한돈자조금소식지 */
+	.kppa_book {
+		width:49%;
+		max-height:400px;
+		min-height:400px;
+		margin-right:2%;
+		margin-bottom:10px;
+	}
+	.kppa_book.kppa_book_02 {
+		margin-right:0;
+	}
+	
+	.kppa_book a.kpb_img {height: 354px;}
+
+	/* 한돈기업정보&홍보영상 */
+	.kppa_infoBanner {
+		width:65%;
+		min-height:372px;
+		margin-right:2%;
+		padding:10px;
+	}
+	.kppa_infoBanner ul li {
+		min-height:350px;
+		padding:200px 10px 25px 10px;
+		text-align:center;
+		background:url('/images/main/kppa_infoBanner_02.jpg') no-repeat center 40px #fff;
+		background-size:auto 130px;
+	}
+	.kppa_infoBanner ul li:first-child {
+		background:url('/images/main/kppa_infoBanner_01.jpg') no-repeat center 40px #fff;
+	}
+	/* 배너광고 */
+	.partner_ad {
+		width:33%;
+		min-height:372px;
+	}
+
+	/* 모달 */
+	.modal-body {
+		padding: 20px;
+	}
+	.print-modal {
+		overflow-x:scroll;
+	}
+
+	/* 회원가입 */	
+	.has_stepGroup {
+		width:-webkit-calc( 100% - 40px );
+		width:-moz-calc( 100% - 40px );
+		width:calc( 100% - 40px );
+		padding:10px;
+		position:absolute;
+		top:-30px;
+		left:20px;
+	}
+	.has_stepGroup ul li {
+		border-right:1px solid #ddd;
+		text-indent:0px;
+		padding:10px 0;
+		text-align:center;
+		font-size:0.9rem;
+		background:none!important;
+		float:left;
+	}
+	.has_stepGroup ul li span {
+		display:block;
+	}
+	.form-group {
+		margin-bottom:10px;
+	}
+	.form-group label {
+		width:100%!important;
+		float:none;
+		display:block;
+	}
+	.form-group label.hidden_label {
+		display:none;
+	}
+	.form-group .mem_checkbox {
+		margin-bottom:30px;		
+		margin-top:-15px;
+		margin-left:10px;
+		clear:both;
+	}
+	.form-group .mem_checkbox input[type="checkbox"] + label {
+		line-height:1.2;
+		margin-top:-25px;
+		margin-left:10px;
+	}
+	.form-group input[type="text"], .form-group input[type="password"] {
+		min-width:180px;
+	}
+	.find_email .email01 input {max-width: 50%; min-width: 50%;}
+	.form-group input.col-4 {
+		min-width:-webkit-calc( 100% - 185px )!important;
+		min-width:-moz-calc( 100% - 185px )!important;
+		min-width:calc( 100% - 185px )!important;
+	}
+	.form-group input.emailInput {
+		min-width:-webkit-calc( 100% - 220px )!important;
+		min-width:-moz-calc( 100% - 220px )!important;
+		min-width:calc( 100% - 220px )!important;
+	}
+	.form-group input.afterButton {
+		min-width:-webkit-calc( 100% - 106px );
+		min-width:-moz-calc( 100% - 106px );
+		min-width:calc( 100% - 106px );
+	}
+	.form-group .form_info {
+		width:100%;
+		text-indent:0;
+		margin-top:-5px;
+	}
+	.form-group .select {
+		min-width:-webkit-calc( 100% - 110px );
+		min-width:-moz-calc( 100% - 110px );
+		min-width:calc( 100% - 110px );
+		margin-top:10px;
+	}
+	.form-group .select + button {
+		margin-top:10px;	
+	}
+	
+	.sub {
+		width:100%;
+		padding-left:0px;
+	}
+
+	/* 한돈기업정보 */
+	.companySearch_form select {
+		width:26%;
+		margin-left:0%;
+		
+	}
+	.companySearch_form input {
+		width: 68%;
+		width:-webkit-calc(73% - 30px);
+		width:-moz-calc(73% - 30px);
+		width:calc(73% - 30px);
+	}
+
+	
+	.board_view .vw_cont .vw_txt td {
+		max-width:750px; 
+	}
+
+}
+
+@media (max-width: 767px) {
+	/* header */
+	.navbar-header {
+		background:none;
+	}	
+	.nav-handonmall {
+		display:none;
+	}
+	.logo-wrap a img {
+		width:200px;
+	}
+	.nav-search {
+		width:100%;
+		padding-right:50px;
+		clear:both;
+		position:relative;
+	}
+	.nav-search input {
+		width:100%;
+		height:45px;
+		line-height:45px; 
+		border:2px solid #d8d8d8;
+		text-indent:20px;
+		font-size:1rem;
+	}
+	.nav-search a.search {
+		width:45px;
+		height:45px;
+		line-height:45px;
+		position:absolute;
+		left:auto;
+		right:50px;
+		top:-1px;
+		color:#000;
+		font-size:1.2rem;
+		text-align:center;
+		display:block;
+	}
+
+	.header_info a, 
+	.header_info button, 
+	.header_info_r { display:none }
+
+	/* 모바일 상단메뉴 =============================================================================*/
+	.sidemenu_box { position:relative; min-height:100%; height:auto; display:none; z-index:1000000; }
+	.sidemenu_box_bg { position:fixed; top:0; left:0; width:100%; height:100%; background:#000; opacity:.7; filter:alpha(opacity=70);}
+
+	/* 모바일 메뉴 열기 */
+	a.open_sidemenu { position:relative; position:absolute; right:0; top:0; display:block; width:30px; height:45px; padding:0; font-size:0;
+	transition:all .5s ease;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;}
+	a.open_sidemenu span {display:inline-block;position:absolute;width:30px;height:4px;left:50%;margin-left:-15px;top:50%;margin-top:-2px;background-color:#212121;}
+	a.open_sidemenu span:before {position:absolute;width:30px;height:4px;left:50%;margin-left:-15px;top:-8px;background-color:#212121;content:"";display:block;}
+	a.open_sidemenu span:after {position:absolute;width:30px;height:4px;left:50%;margin-left:-15px;top:8px;background-color:#212121;content:"";display:block;}
+
+	a.open_sidemenu.active span {background:none;}
+	a.open_sidemenu.active span:before {background:#212121;top: 0;transform:rotate(45deg); -webkit-transform:rotate(45deg);}
+	a.open_sidemenu.active span:after {background:#212121;top: 0;transform:rotate(-45deg);-webkit-transform:rotate(-45deg);}
+
+	/* 모바일 메뉴 닫기 */
+	.close_sidemenu_bg { position:relative; display:block; width:100%; height:90px; background:#273b7d; }
+	.close_sidemenu_bg .tit { position:absolute; display:block; left:15px; top:24px; }
+	.close_sidemenu_bg .tit span { font-size:15px; color:#2e7c25; vertical-align:top }
+
+	.close_sidemenu_bg .tit a { position:relative; font-size:14px; color:rgba(255, 255, 255, 0.7); display:inline-block; width:80px; height:60px; padding-top:25px; text-align:center; }
+	.close_sidemenu_bg .tit a:before { position:absolute; right:0; top:0; width:1px; height:45px; content:''; background:#3e538a; }
+	.close_sidemenu_bg .tit a.login { background:url('/images/common/top_icon1.png') no-repeat center top; background-size:20px; }
+	.close_sidemenu_bg .tit a.join { background:url('/images/common/top_icon2.png') no-repeat center top; background-size:20px; }
+	.close_sidemenu_bg .tit a.logout { background:url('/images/common/top_icon3.png') no-repeat center top; }
+	.close_sidemenu_bg .tit a.myinfo { background:url('/images/common/top_icon4.png') no-repeat center top; }
+	.close_sidemenu_bg .tit a.mall { background:url('/images/common/kppa_header_info_icon.png') no-repeat center top; }
+	.close_sidemenu_bg .tit a.mall:before { background:none }
+
+	a.close_sidemenu { position:relative; position:absolute; display:block; right:5px; top:10px; width:30px; height:21px; font-size:0; 
+	transition:all .5s ease;-webkit-transition:all .5s ease;-moz-transition:all .5s ease;}
+	a.close_sidemenu span {display:inline-block;position:absolute;left:50%;margin-left:-10px;top:50%;transform: translate(-50%,-50%);-webkit-transform: translate(-50%,-50%);margin-top:-1px;width:20px;height:3px;background-color:#fff;}
+	a.close_sidemenu span:before {position:absolute;width:20px;height:3px;left:50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); margin-left:-10px;top:-7px;background-color:#fff;content:"";display:block;}
+	a.close_sidemenu span:after {position:absolute;width:20px;height:3px;left:50%; transform: translateX(-50%); -webkit-transform: translateX(-50%); margin-left:-10px;top:7px;background-color:#fff;content:"";display:block;}
+
+	a.close_sidemenu.active span {background:none;}
+	a.close_sidemenu.active span:before {background:#fff;top: 0;transform: rotate(45deg);-webkit-transform: rotate(45deg);}
+	a.close_sidemenu.active span:after {background:#fff;top: 0;transform: rotate(-45deg);-webkit-transform: rotate(-45deg);}
+
+	/* 모바일 메뉴 스크롤 */
+	#sidemenu_wrap { display:block; overflow:auto; position:absolute; width:100%; top:90px; bottom:0; z-index:1;  }
+	.sidemenu_w { position:fixed; top:0; bottom:0; right:-280px; width:280px; background:#fff; }
+
+	/* 모바일 메뉴 스타일 */
+	.sidemenu { position:absolute; width:100%; background:#fff; }
+	.sidemenu a.toggle span { 
+		 z-index:10000; position:absolute; top:50%; margin-top:-4px; right:20px;
+		 width:13px; height:8px; background:url('/images/common/sidemenu_bullet.gif') no-repeat;
+		-webkit-transition:all 0.3s ease-in-out; 
+		-moz-transition: all 0.3s ease-in-out; 
+		-o-transition: all 0.3s ease-in-out; 
+		-ms-transition: all 0.3s ease-in-out; 
+		transition: all 0.3s ease-in-out; 
+	}
+	.sidemenu a.expanded span { 
+		-webkit-transform: rotate(180deg); 
+		-moz-transform: rotate(180deg); 
+		-o-transform: rotate(180deg); 
+		-ms-transform: rotate(180deg); 
+		transform: rotate(180deg);
+	}
+	.sidemenu ul ul.submenu, 
+	.sidemenu ul ul.submenu li ul.submenu { display: none; }
+
+	.sidemenu ul li a.mm { position:relative; display:block; text-indent:20px; height:57px; line-height:57px; color:#000; font-weight:600; text-align:left;
+	font-size:16px; background:#fff; border-bottom:1px solid #e6e6e6; }
+	.sidemenu ul li a.mm.toggle { position:relative; display:block; text-indent:20px; color:#000; font-weight:600; text-align:left; 
+	font-size:16px; background:#fff; border-bottom:1px solid #e6e6e6; }
+	.sidemenu ul li a.mm.expanded { color:#000; }
+
+	.sidemenu ul li ul.submenu li a { position:relative; display:block; width:100%; height:40px; line-height:40px; background:#eff0f3; 
+	font-size:15px; font-weight:500; color:#515151; text-align:left; text-indent:20px; border-bottom:none }
+
+	.sidemenu ul li ul.submenu li a.toggle { font-size:15px; font-weight:500; color:#515151; background:#eff0f3; border-bottom:none }
+	.sidemenu ul li ul.submenu li a.toggle span { margin-top:-4px; width:11px; height:11px; background:url('../images/common/sidemenu_bullet2.gif') no-repeat; }
+
+	.sidemenu ul li ul.submenu li a:focus, 
+	.sidemenu ul li ul.submenu li a:hover, 
+	.sidemenu ul li ul.submenu li a.expanded { color:#fff !important; background-color:#01a54e }
+	.sidemenu ul li ul.submenu li a:hover span { background:url('../images/common/sidemenu_bullet3.gif') no-repeat; }
+	.sidemenu ul li ul.submenu li a.expanded span { background:url('../images/common/sidemenu_bullet4.gif') no-repeat;
+	-webkit-transform:none; -moz-transform:none; -o-transform:none; -ms-transform:none; transform:none; }
+
+	.sidemenu ul ul.submenu li ul.submenu { padding:10px 0; background:#d8dbe6; }
+	.sidemenu ul ul.submenu li ul.submenu a { position:relative; display:block; width:100%; height:30px; line-height:30px; background:#d8dbe6;
+	font-size:13px; font-weight:500; color:#515151; text-align:left; text-indent:20px; }
+	.sidemenu ul ul.submenu li ul.submenu a:hover,
+	.sidemenu ul ul.submenu li ul.submenu a:focus { background:#b3b9cd; }
+	
+
+
+	/* 메인 비쥬얼 */
+	.mainVisual {
+		width:100%;
+		padding:20px;
+		margin-right:0;
+		margin-top:10px;
+		padding-bottom:60px;
+	}
+	.mainVisual .mainVisual_info {
+		width:100%;
+		display:block;
+		float:left;
+	}
+	.mainVisual h2 {
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}	
+	.mainVisual h3 {
+		padding-bottom:0px;
+		display:none;
+	}	
+	.mainVisual a.mainVisual_more {
+		margin-bottom:10px;
+	}
+	.mainVisual .has_img {
+		width:100%;
+		height:300px;
+		overflow:hidden;
+	}
+	/* 지육시세 */
+	.meat_price {
+		width:100%;
+		max-height:160px;
+		margin-top:10px;
+	}
+	.meat_price h2 {
+		padding-top:20px;
+	}
+	.meat_price h3 {
+		padding-bottom:15px;
+	}
+	/* 메인우측 6개 퀵배너 */
+	.kppa_six {
+		width:100%;
+		margin-top:10px;
+	}
+	/* 공지사항 탭메뉴 */
+	.boardMain {
+		width:100%;
+		margin-right:0;
+		
+	}
+
+	.boardMain .panel ul li.first .has_img .basic_img {margin-top: -15%;}
+
+	/* 포토뉴스 */
+	.kppa_photoNews {
+		width:49%;
+		min-height:305px;
+		margin-right:2%;
+	}	
+	.kppa_photoNews ul li a {
+		padding:170px 20px 0px 20px;
+	}
+	.kppa_photoNews ul li a h2 {
+		padding:10px;
+	}
+	/* 팝업존 */
+	.kppa_popZone {
+		width:49%;
+		min-height:305px;
+	}
+	/* 월간한돈 & 한돈자조금소식지 */
+	.kppa_book {
+		width:49%;
+		max-height:400px;
+		min-height:400px;
+		margin-right:2%;
+		margin-bottom:10px;
+	}
+	.kppa_book.kppa_book_02 {
+		margin-right:0;
+	}
+
+	/* 한돈기업정보&홍보영상 */
+	.kppa_infoBanner {
+		width:65%;
+		min-height:280px;
+		margin-right:2%;
+		padding:10px;
+	}
+	.kppa_infoBanner ul li {
+		min-height:130px;
+		padding:140px 10px 30px 10px;
+		text-align:center;
+		background:url('/images/main/kppa_infoBanner_02.jpg') no-repeat center 20px #fff;
+		background-size:auto 100px;
+	}
+	.kppa_infoBanner ul li:first-child {
+		background:url('/images/main/kppa_infoBanner_01.jpg') no-repeat center 20px #fff;
+		background-size:auto 100px;
+	}
+	/* 배너광고 */
+	.partner_ad {
+		width:33%;
+		min-height:280px;
+	}
+
+
+	/* view.html */
+	.vw_info .vw_tit th {
+		padding: 15px;
+	}
+	.vw_info .vw_tit th strong{
+		font-size: 1em;
+	}
+	.vw_info .vw_date {font-size: 0.85em;}
+	.vw_info .vw_date td{
+		padding: 8px 0;
+	}
+	.vw_info .file_bx th, .vw_info .file_bx td {padding:8px 0;font-size: 0.85em;}
+	.board_view .vw_cont .vw_txt td {padding: 10px;}
+	.vw_cont .vw_share p {width: 125px;}
+	.vw_cont .vw_share a {
+		width: 35px; height: 35px;
+		line-height: 30px; font-size: 1.2em;
+	}
+	.vw_cont .vw_share .band img {width: 25px;}
+	.board_view .go_lst {
+		padding: 50px 0;
+	}
+	.board_view .go_lst a {
+		padding: 5px 12px; font-size: 0.9em;
+	}
+	.board_view .vw_prev th, .board_view .vw_prev td {
+		padding: 10px;
+	}
+	.board_view .vw_cont .vw_txt td {
+		max-width:540px; 
+	}
+
+	/* copyright */
+	.footer address b {
+		width:100%;
+		margin-top:5px;
+		display:block;
+	}
+
+	/* 한돈기업정보 */
+	.companySearch_form select {
+		width:30%;
+		font-size:1.1rem;
+		
+	}
+	.companySearch_form input {
+		width: 63%;
+		width:-webkit-calc(69% - 30px);
+		width:-moz-calc(69% - 30px);
+		width:calc(69% - 30px);
+		font-size:1.1rem;
+	}
+
+
+
+}
+
+@media (max-width: 576px) {
+
+
+	.mainVisual .has_img {
+		height:240px;
+	}
+
+	/* 로그인&회원가입 */
+	.has_formGroup {
+		width: 88%;
+		width:-webkit-calc( 100% - 40px );
+		width:-moz-calc( 100% - 40px );
+		width:calc( 100% - 40px );
+		padding:20px;
+		position:absolute;
+		top:-30px;
+		left:20px;
+	}
+	.has_formGroup label {
+		width:100%!important;
+		line-height:30px;
+	}	
+	.has_formGroup .mem_checkbox {
+		margin-top:-20px;
+		margin-left:8px;
+	}
+	.has_formGroup .mem_checkbox input[type="checkbox"] + label {
+		line-height:1.2;
+		margin-top:-35px;
+		margin-left:8px;
+	}
+	.btn-group-2 a {
+		width:100%;
+	}
+	.btn-group-2 a:first-child {
+		margin-right:0;
+		margin-bottom:4px;
+	}
+
+	.modal-body.padding-Btop2 {padding-top: 340px;}
+
+
+	/*메인 비쥬얼*/
+	.mainVisual h2 {
+		margin-bottom: 10px;
+		white-space: normal;
+		line-height: 1.3;
+		height: 2.6em;
+		display: -webkit-box;
+		-webkit-box-orient:vertical;
+		-webkit-line-clamp: 2;
+		overflow:hidden;
+		text-overflow:ellipsis;
+	}
+	.mainVisual a.mainVisual_more {
+		display: none;
+	}
+
+
+	/* 공지사항 */
+
+	/* 포토뉴스 */
+	.kppa_photoNews {
+		min-height:auto;
+		
+	}
+	.kppa_photoNews ul li a {
+		padding:72.5% 15px 0px 15px;
+	}
+	.kppa_photoNews ul li a h2 {
+		font-size:0.9rem;
+	}
+	/* 팝업존 */
+	.kppa_popZone {
+		min-height:auto;
+	}	
+	/* 월간한돈 & 한돈자조금소식지 */
+	.kppa_book {
+		max-height:350px;
+		min-height: 270px;
+	}
+
+	.kppa_book a.kpb_img {max-height: 304px;}
+
+	/* 한돈기업정보&홍보영상 */
+	.kppa_infoBanner {
+		width:49%;
+		min-height:330px;
+		margin-right:2%;
+		padding:10px;
+	}
+	.kppa_infoBanner ul li {
+		width:100%;
+		padding:35px 20px;
+		text-align:center;
+		background:#fff;
+	}
+	.kppa_infoBanner ul li:first-child {
+		margin-bottom:10px;
+		background:#fff;
+	}
+	/* 배너광고 */
+	.partner_ad {
+		width:49%;
+		min-height:330px;
+	}
+
+	/* 한돈기업정보 */
+	.companySearch_form {
+		padding:5px 0 15px 0px;
+	}
+	.companySearch_form select {
+		width:40%;
+		height:40px;
+		font-size:1rem;
+		
+	}
+	.companySearch_form input {
+		width: 49%;
+		width:calc(59% - 30px);
+		height:40px;
+		line-height:40px;
+		font-size:1rem;
+	}
+	.companySearch_form button {
+		height:40px;
+		line-height:40px;
+	}
+
+	/* Page Title */
+	.page-title {
+		height:36px;
+	}
+	.page-title .breadcrumb a.home {
+		width:36px;
+		padding-left:8px;
+		margin-left:0px;
+	}
+	.page-title .breadcrumb a {
+		line-height:36px;
+	}
+	.page-title .breadcrumb {
+		font-size: 0.75rem;
+	}
+	.page-title .breadcrumb .depth p {
+		height:36px;
+		line-height:36px;
+		padding:0 8px;
+	}
+	.page-title .breadcrumb .arrow img {
+		height:36px;
+	}
+	.page-title .userBtn button {
+		width:36px;
+		height:36px;
+		font-size:1rem;
+	}
+	/* Page Title > share_bx*/
+	.page-title .share_bx {
+		width: 140px;
+		padding:4px 10px;
+	}
+	.page-title .share_bx a {
+		width: 26px; height: 26px;
+		line-height: 23px;
+		font-size: 1.2em;
+	}
+
+
+	/* 사이트맵 */
+	.sitemap {
+		width:100%;
+		padding:0 20px;
+	}
+	.sitemap_li { 
+		width:100%;
+		margin-right:0; 
+	}
+	.sitemap_li:nth-child(3n) {
+		margin-right:0;
+	}
+
+	
+	.board_view .vw_cont .vw_txt td {
+		max-width:400px; 
+	}
+
+}
+
+@media (max-width:500px) {
+	.kppa_photoNews ul li a h2 {
+		font-size:0.9rem;
+		max-height: 3.4rem;
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+}
+
+@media (max-width: 480px) {
+
+.page-title {
+		height:auto;
+		padding:5px 0
+	}
+	.page-title .breadcrumb_pc {
+		display:none;
+	}
+	.page-title .breadcrumb_m {
+		display:block; 
+	}
+	.page-title .breadcrumb_m select {
+		height:40px;
+		line-height:40px;
+		font-size:16px;
+		color:#000
+	}
+	
+	.page-title .breadcrumb_m .select select {
+		background-position:95% 50%;
+		padding-right:25px;
+	}
+
+	/* page title */
+	.page-title .userBtn {
+		display:none;
+	}
+
+
+	.mainVisual .has_img {
+		height:200px;
+	}
+
+	.form-group input.emailInput {
+		min-width:100%!important;
+		margin-right:0!important;
+		margin-top:5px;
+	}
+	.form-group input.emailInput_front {
+		min-width:calc( 100% - 35px );	
+	}
+
+	.form-group .w480 {width: 100% !important;}
+	.form-group .mb480 {margin-bottom: 5px;}
+
+	/* 공지사항 */
+	.boardMain {
+		max-height: 320px;
+		min-height: 280px;
+	}
+	.boardMain .tablist li {
+		width:20%;
+		font-size:0.8rem;
+	}
+	.boardMain .tablist li:last-child {
+		border-right:0;
+	}
+	.boardMain .panel {
+		padding:20px;
+	}
+	
+	.boardMain .panel ul li.first {
+		height:70px;
+		margin-bottom:10px;
+	}
+	.boardMain .panel ul li.first a h2 {
+		display:none;
+	}
+	.boardMain .panel a.notice_more {
+		width:100%;
+		height:35px;
+		line-height:35px;
+		position:absolute;
+		top:auto;
+		left:0;
+		bottom:16px;
+		background:#f6f6f6;
+		border-top:1px solid #ddd;
+	}
+	.boardMain .panel ul li a {
+		font-size:0.8rem;
+	}
+
+	/* 포토뉴스 */
+	.kppa_photoNews {
+		width:100%;
+		min-height:auto;
+		margin-right:0;
+		margin-bottom:20px;
+	}
+	.kppa_photoNews ul li a {
+		padding:155px 10px 0px 10px;
+		background-size:90% auto!important;
+		background-position:center 15px!important;
+	}
+	.kppa_photoNews ul li a h2 {
+		font-size:0.9rem; padding: 5px 10px 10px;
+	}
+	/* 팝업존 */
+	.kppa_popZone {
+		width:100%;
+		min-height:auto;
+		max-height: 500px;
+	}
+	/* 월간한돈 & 한돈자조금소식지 */
+	.kppa_book {
+		min-height:300px;
+	}
+	.kppa_book a.kpb_img {height: auto;}
+
+	/* 한돈기업정보&홍보영상 */
+	.kppa_infoBanner {
+		width:49%;
+		min-height:320px;
+		margin-right:2%;
+		padding:10px;
+	}
+	.kppa_infoBanner ul li {
+		width:100%;
+		padding:28px 20px;
+		text-align:center;
+		background:#fff;
+	}
+	.kppa_infoBanner ul li:first-child {
+		margin-bottom:10px;
+		background:#fff;
+	}
+
+	
+	/* 배너광고 */
+	.partner_ad {
+		width:49%;
+		min-height:320px;
+	}
+
+	/* page title */
+	.page-title .printBtn {
+		display:none;
+	}
+	
+	/* 메인 포토뉴스,팝업존 */
+	.kppa_photoNews h1,.kppa_popZone h1, .meat_price h1 {text-indent: 8px;}
+	.kppa_photoNews .bx-wrapper .bx-next,
+	.kppa_popZone .bx-wrapper .bx-next,
+	.partner_ad .bx-wrapper .bx-next {right: 55px;}
+	.kppa_photoNews .bx-wrapper .bx-prev,
+	.kppa_popZone .bx-wrapper .bx-prev,
+	.partner_ad .bx-wrapper .bx-prev {right: 80px;}
+	.kppa_photoNews .bx-wrapper .bx-controls-auto,
+	.kppa_popZone .bx-wrapper .bx-controls-auto,
+	.partner_ad .bx-wrapper .bx-controls-auto {right: 10px;}
+
+	/* view */
+	.board_view .vw_cont .vw_txt td {
+		max-width:370px; 
+	}
+
+	/* 설립목적 */
+	.purpose { 
+		padding:10px 0px;
+	}
+	.purpose p br { display:none; }
+
+
+}
+
+
+@media (max-width: 380px) {
+
+
+	.mainVisual .has_img {
+		height:150px;
+	}
+
+	/* 상단 위치표시 */
+	/* .page-title {
+		height:auto;
+		padding:5px 0
+	}
+	.page-title .breadcrumb_pc {
+		display:none;
+	}
+	.page-title .breadcrumb_m {
+		display:block; 
+	}
+	.page-title .breadcrumb_m select {
+		height:40px;
+		line-height:40px;
+		font-size:16px;
+		color:#000
+	}
+	
+	.page-title .breadcrumb_m .select select {
+		background-position:95% 50%;
+		padding-right:25px;
+	} */
+
+	/* 로그인&회원가입 */
+	.scollBox {
+		height:100px;
+	}
+	.form-group_box {
+		max-height:55vh;
+		padding-top:5px;
+	}
+	.has_stepGroup {width: 88%;}
+	.has_stepGroup ul li {
+		border-right:1px solid #eee;
+		font-size:0.85rem;
+		letter-spacing:-1px;
+	}
+	.form-group input[type="text"], .form-group input[type="password"] {
+		min-width:100%;
+	}
+	.form-group .email01 input {min-width: calc( 100% - 35px );}
+	.form-group input.col-4 {
+		min-width:100% !important;
+		margin-top:5px;
+	}
+	
+	.form-group input.afterButton {	
+		min-width:50%;
+		min-width:calc( 100% - 104px );
+	}
+	.form-group .form_info {
+		width:100%;
+		line-height:1.2;
+		margin-top:3px;
+	}
+	.form-group .select {
+		min-width:50%;
+		min-width:calc( 100% - 104px );
+		margin-top:5px;
+	}
+	.form-group .select + button {
+		margin-top:5px;	
+	}
+
+	.modal-body.padding-Btop2 {padding-top: 430px;}
+	
+	/* 공지사항 */
+	.boardMain .panel ul li a.notice_txt {max-width: 65%;}
+
+	
+	/* 월간한돈 & 한돈자조금소식지 */
+	.kppa_book {
+		min-height:266px;
+		max-height: 270px;
+
+	}	
+	.kppa_book h1 {
+		text-indent:0px;
+		text-align:center;
+	}
+	.kppa_book a.kpb_more {
+		border-left:none;
+		background:rgba(0,0,0,0.5);
+		color:#fff;
+		position:absolute;
+		right:0;
+		top:100%;
+		margin-top:-43px;
+	}
+	.kppa_book a.kpb_img {max-height: 224px;}
+	/* 한돈기업정보&홍보영상 */
+	.kppa_infoBanner {
+		width:100%;
+		min-height:auto;
+		margin-right:0;
+		margin-bottom:20px;
+	}
+	.kppa_infoBanner ul li {
+		padding:15px 20px;
+	}
+
+	.kppa_infoBanner ul li a {
+		padding-top: 10px;
+	}
+	/* 배너광고 */
+	.partner_ad {
+		width:100%;
+		min-height:auto;
+		max-height:500px;
+	}
+
+
+	/* view.html */
+	.vw_info .vw_tit th {
+		padding: 10px;
+	}
+	.vw_cont .vw_size {padding: 10px 10px 5px;}
+
+	
+	.board_view .vw_cont .vw_txt td {
+		max-width:360px;
+	}
+
+	
+
+	
+
+
+}
+
+@media (max-width: 360px) {
+
+	.boardMain .panel ul li.first .has_img .basic_img {margin-top: -10%;}
+
+	/* 월간한돈 & 한돈자조금소식지 */
+	.kppa_book {
+		min-height:234px;
+	}	
+	.board_view .vw_cont .vw_txt td {
+		max-width:280px; 
+	}
+}

@@ -1,0 +1,32 @@
+<?
+include "db.html";
+
+if(!isset($_POST['page']) && $_POST['page'] == "") {
+	$page = 1;
+} else {
+	$page = $_POST['page'];
+}
+
+$category=$_POST['category'];
+$sField=$_POST['sField'];
+$sWord=$_POST['sWord'];
+
+$name=$_POST['name'];
+$passwd=$_POST['passwd'];
+$content=$_POST['replycontent'];
+$bno=$_POST['num'];
+$date = date('Y-m-d H:i:s');
+$ip = $_SERVER['REMOTE_ADDR'];
+
+
+$query = "insert into hanjae_reply(bid, name, passwd, comment, wdate, ip)
+		values('$bno', '$name', '$passwd', '$content', '$date', '$ip')";
+$result = @mysql_query($query, $connect);
+?>
+
+
+
+<script>
+alert("등록되었습니다.");
+location.href="view.html?num="+"<?=$bno?>"+"&category="+"<?=$category?>"+"&sField="+"<?=$sField?>"+"&sWord="+"<?=$sWord?>"+"&page="+"<?=$page?>";
+</script>

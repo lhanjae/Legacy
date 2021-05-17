@@ -1,0 +1,482 @@
+@charset "UTF-8";
+
+/* 메인 비쥬얼 */
+.mainVisual {
+	width:70%;
+	padding:25px;
+	margin-right:2%;
+	margin-top:20px;
+	background-color:#078942;
+	position:relative;
+	float:left;
+	overflow:hidden;
+}
+.mainVisual .mainVisual_info {
+	width:26%;
+	display:block;
+	float:left;
+}
+.mainVisual h2 {
+	font-size:1.2rem;
+	color:#fff;
+	padding-bottom:10px;
+    font-weight: 600;
+	word-break:keep-all;
+}
+.mainVisual h3 {
+	font-size:0.8rem;
+	/*color:rgba(255,255,255,0.7);*/
+	color:#fff;
+	padding-bottom:40px;
+	word-break:keep-all;
+}
+.mainVisual a.mainVisual_more {
+	font-size:0.9rem;
+	border:1px solid #fff;
+	padding:5px 20px;
+	color:#fff;
+	display:inline-block;
+}
+.mainVisual .has_img {
+	width:70%;
+	height:330px;
+	overflow:hidden;
+	float:right;
+}
+.mainVisual .has_img img {
+	width:100%;
+}
+.mainVisual .has_img.has_text {
+	padding:50px 20px;
+	background: #030303 url('/images/main/kppa_mainVisual_bg.jpg') no-repeat center center;
+	color:#fef200;
+	font-weight:500;
+	text-align:center;
+	font-size:2rem;
+	word-break:keep-all;
+}
+#mainVisual_btn_area {
+	height:48px;
+	text-align:center;
+	display:block;
+	position:absolute;
+	left:10px;
+	bottom:10px;
+	border:1px solid #000;
+}
+#mainVisual_btn_area a {
+	width:36px;
+	line-height:48px;
+	font-size:0.8rem;
+	color:#fff;
+	float:left;
+}
+
+/* 지육시세 */
+.meat_price {
+	width:28%;
+	max-height:295px;
+	margin-top:20px;
+	border:1px solid #dfdfdf;
+	float:left;
+}
+.meat_price h1 {
+	line-height:42px;
+	font-size:1.1rem;
+	text-indent:20px;
+	border-bottom:1px solid #dfdfdf;
+}
+.meat_price a {
+	width:43px;
+	height:43px;
+	font-size:26px;
+	text-align:center;
+	border-left:1px solid #dfdfdf;	
+	display:block;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.meat_price a:hover {
+	background:#283b7d;
+	border-left:1px solid #283b7d;	
+	color:#fff;
+}
+.meat_price h2 {
+	font-size:1.2rem;
+	text-align:center;
+	padding-top:20px;
+}
+.meat_price h3 {
+	font-size:1.6rem;
+	text-align:center;
+	color:#ff5715;
+	font-weight:500;
+	padding-bottom:20px;
+}
+.meat_price h3 span {
+	font-size:1.1rem;
+	text-align:center;
+	color:#ff3300;
+}
+
+.meat_price h3 span.down_price {
+	color:#0033ff;
+}
+
+/* 메인우측 6개 퀵배너 */
+.kppa_six {
+	width:28%;
+	margin-top:18px;
+	float:right;
+}
+.kppa_six a {
+	width:33.33%;
+	font-size:0.8rem;
+	letter-spacing:-1px;
+	color:#202020;
+	text-align:center;
+	padding:68px 0 15px 0;
+	border:1px solid #dfdfdf;
+	border-right:none;
+	display:block;
+	box-sizing:border-box;
+	float:left;
+}
+.kppa_six a.kppa_six_01 {
+	background:url('/images/main/kppa_six_01.png') no-repeat center 20px;
+	border-bottom:1px solid #fff;
+}
+.kppa_six a.kppa_six_02 {
+	background:url('/images/main/kppa_six_02.png') no-repeat center 20px;
+	border-bottom:1px solid #fff;
+}
+.kppa_six a.kppa_six_03 {
+	width:33.34%;
+	background:url('/images/main/kppa_six_03.png') no-repeat center 20px;
+	border-bottom:1px solid #fff;
+	border-right:1px solid #dfdfdf;
+}
+.kppa_six a.kppa_six_04 {
+	padding:33px 0;
+}
+.kppa_six a.kppa_six_04 img {
+	margin:0 auto;
+}
+.kppa_six a.kppa_six_05 {
+	background:url('/images/main/kppa_six_06.png') no-repeat center 20px;
+}
+.kppa_six a.kppa_six_06 {
+	width:33.34%;
+	background:url('/images/main/kppa_six_05.png') no-repeat center 20px;
+	border-right:1px solid #dfdfdf;
+}
+.kppa_six a:hover {
+	border:1px solid #000;
+}
+.kppa_six a:focus {
+	border:1px solid #000;
+}
+
+
+
+/* 공지사항 탭메뉴 */
+.boardMain {
+	width:50%;
+	margin-right:1%;
+	border:1px solid #dfdfdf;
+	float:left;
+	max-height: 327px;
+	min-height: 327px;
+	overflow: hidden;
+}
+.boardMain .tablist li {
+	width:18.2%;
+	height:48px;
+	line-height:48px;
+	font-size:1rem;
+	text-align:center;
+	border-right:1px solid #dfdfdf;
+	border-bottom:1px solid #dfdfdf;
+	cursor:pointer;
+	display:block;
+	float:left;
+}
+.boardMain .tablist li.active {
+	font-weight:400;
+	color:#273b7d;
+	border-top:4px solid #273b7d;
+	border-bottom:1px solid #fff;
+}
+.boardMain .tablist li[aria-selected="true"] {
+	font-weight:400;
+	color:#273b7d;
+	border-top:4px solid #273b7d;
+	border-bottom:1px solid #fff;
+}
+.boardMain .panel {
+	height:286px;
+	max-height:286px;
+	padding:30px;
+	position:relative;
+	clear:both;
+}
+.boardMain .panel a {
+	display:inline-block;
+}
+.boardMain .panel a.notice_more {
+	width:9%;
+	height:48px;
+	line-height:48px;
+	font-size:1.6rem;
+	text-align:center;
+	display:block;
+	position:absolute;
+	right:0;
+	top:-48px;
+}
+.boardMain .panel a.notice_more:hover,
+.boardMain .panel a.notice_more:focus {
+	background:#283b7d;	
+	color:#fff;
+}
+.boardMain .panel ul li {
+	width:100%;
+	margin-bottom:10px;
+	overflow:hidden;
+	clear:both;
+}
+.boardMain .panel ul li.first {
+	height:80px;
+	margin-bottom:30px;
+}
+.boardMain .panel ul li.first .has_img {
+	width:25%;
+	height:80px;
+	margin-right:5%;
+	overflow:hidden;
+	float:left;
+}
+.boardMain .panel ul li.first .has_img img {
+	width:100%;
+}
+.boardMain .panel ul li.first .has_img .basic_img {margin-top: -20%;}
+.boardMain .panel ul li.first a h1 {
+	width:70%;
+	padding-bottom:10px;
+	font-size:1rem;
+	overflow:hidden;
+	float:left;
+}
+.boardMain .panel ul li.first a h2 {
+	width:70%;
+	font-size:0.8rem;
+	font-weight:300;
+	color:#484848;
+	word-break:keep-all;
+	float:left;
+}
+.boardMain .panel ul li a {
+	font-size:0.9rem;
+	color:#282828;
+}
+.boardMain .panel ul li:first-child a{display: block; width: 100%; height: 100%;}
+.boardMain .panel ul li:before {
+	content: "• ";
+	font-size:0.8rem;
+	color: #282828;
+	padding-right: 0.3em;
+}
+.boardMain .panel ul li.first:before {
+	content:none;
+}
+.boardMain .panel ul li span.notice_date {
+	font-size: 0.9rem;
+	color:#555;
+	float:right;
+}
+.boardMain .panel[aria-hidden="true"] { 
+  display: none;
+}
+
+/* 포토뉴스 */
+.kppa_photoNews {
+	width:24%;
+	/* max-height:336px;
+	min-height:336px; */
+	max-height: 327px;
+	min-height: 327px;
+	margin-right:1%;
+	border:1px solid #dfdfdf;
+	float:left;
+}
+.kppa_photoNews h1 {
+	line-height:48px;
+	font-size:1.2rem;
+	text-indent:20px;
+	border-bottom:1px solid #dfdfdf;
+}
+.kppa_photoNews .btn_area {
+	height:48px;
+	text-align:center;
+	display:block;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.kppa_photoNews .btn_area a {
+	width:36px;
+	line-height:48px;
+	font-size:0.8rem;
+	color:#6e7885;
+	float:left;
+}
+.kppa_photoNews ul li a {
+	padding:200px 20px 0px 20px;
+	display:block;
+	width: 100%; height: 100%;
+	border: 1px solid transparent;
+}
+.kppa_photoNews ul li a h2 {
+	/* padding-top:20px; */
+	font-size:1rem;
+	background:#fff;
+	word-break:keep-all;
+}
+.kppa_photoNews img {
+	width:100%;
+}
+
+.kppa_photoNews .bx-wrapper .bx-viewport {overflow: visible !important;}
+
+
+/* 팝업존 */
+.kppa_popZone {
+	width:24%;
+	/* max-height:336px;
+	min-height:336px; */
+	max-height: 327px;
+	min-height: 327px;
+	border:1px solid #dfdfdf;
+	overflow:hidden;
+	float:left;
+}
+.kppa_popZone h1 {
+	line-height:48px;
+	font-size:1.2rem;
+	text-indent:20px;
+	border-bottom:1px solid #dfdfdf;
+}
+.kppa_popZone .popZone_li a {display: block; width: 100%; height: 100%;}
+.kppa_popZone .btn_area {
+	height:48px;
+	text-align:center;
+	display:block;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.kppa_popZone .btn_area a {
+	width:36px;
+	line-height:48px;
+	font-size:0.8rem;
+	color:#6e7885;
+	float:left;
+}
+.kppa_popZone a img {
+	width:100%;
+}
+
+
+/* 월간한돈 & 한돈자조금소식지 */
+.kppa_book {
+	width:19%;
+	max-height:295px;
+	margin-right:1%;
+	border:1px solid #dfdfdf;
+	float:left;
+}
+.kppa_book h1 {
+	line-height:43px;
+	font-size:1rem;
+	text-indent:20px;
+	border-bottom:1px solid #dfdfdf;
+}
+.kppa_book a.kpb_more {
+	width:43px;
+	height:43px;
+	font-size:26px;
+	text-align:center;
+	border-left:1px solid #dfdfdf;	
+	display:block;
+	position:absolute;
+	right:0;
+	top:0;
+}
+.kppa_book a.kpb_img {display: block; width: 100%; height: 249px; overflow: hidden;}
+.kppa_book img {
+	width:100%;
+}
+
+/* 한돈기업정보&홍보영상 */
+.kppa_infoBanner {
+	width:42%;
+	max-height:295px;
+	min-height:295px;
+	margin-right:1%;
+	padding:24px;
+	background-color:#ececec;
+	border:1px solid #dfdfdf;
+	float:left;
+}
+.kppa_infoBanner ul {
+
+}
+.kppa_infoBanner ul li {
+	width:49%;
+	padding:150px 10px 25px 10px;
+	text-align:center;
+	background:url('/images/main/kppa_infoBanner_02.jpg') no-repeat center 10px #fff;
+	background-size:auto 130px;
+	letter-spacing:-1px;
+	float:left;
+}
+.kppa_infoBanner ul li a {
+	display:block;
+}
+.kppa_infoBanner ul li:first-child {
+	margin-right:2%;	
+	background:url('/images/main/kppa_infoBanner_01.jpg') no-repeat center 10px #fff;
+}
+.kppa_infoBanner ul li h1 {
+	font-size:1.2rem;
+	padding-bottom:3px;
+}
+.kppa_infoBanner ul li p {
+	font-size:0.8rem;
+	color:#585858;
+}
+
+/* 배너광고 */
+.partner_ad {
+	width:17%;
+	max-height:295px;
+	border:1px solid #dfdfdf;
+	float:left;
+}
+.partner_ad h1 {
+	line-height:48px;
+	font-size:0.95rem;
+	text-indent:20px;
+	border-bottom:1px solid #dfdfdf;
+}
+.partner_ad ul {}
+.partner_ad ul li {
+	float:left;
+}
+.partner_ad ul li a {
+	display:block;
+}
+.partner_ad ul li > a > img {
+	width:100%;
+}

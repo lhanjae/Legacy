@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:700');
+
+body {
+  font-family: 'Lato', sans-serif;
+  padding: 30px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+h1 {
+  margin-bottom: 100px;
+  font-weight: 700;
+}
+.btn {
+  cursor: pointer;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+  font-size: 0;
+  li {
+    display: inline-block;
+    background-color: #eee;
+    border: 1px solid #bbb;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    &[aria-selected="true"] {
+      background-color: white;
+      border-bottom: 1px solid white;
+    }
+  }
+}
+.wrap-panels {
+  border-top: 1px solid #bbb;
+  margin-top: -1px;
+  margin-bottom: 100px;
+}
+div[aria-hidden="true"], .hidden { // IE9 does not support this selector.
+  display: none;
+}
+
+.example-2, .example-3 {
+  .tablist {
+    font-size: 0;
+    button {
+      background-color: #eee;
+      border: 1px solid #bbb;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      &[aria-selected="true"] {
+        background-color: white;
+        border-bottom: 1px solid whtie;
+      }
+    }
+  }
+}
+
+.example-4 {
+  .tablist {
+    font-size: 0;
+    a.tab {
+      display: inline-block;
+      background-color: #eee;
+      border: 1px solid #bbb;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      &[aria-selected="true"] {
+        background-color: white;
+        border-bottom: 1px solid whtie;
+      }
+    }
+  }
+}

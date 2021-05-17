@@ -1,0 +1,112 @@
+
+@media (max-width:768px){
+	/* 공통 */
+	.schedule_month {
+		padding-bottom:45px;
+	}
+	.schedule_month button.month_prev {
+		position:absolute;
+		left:0;
+		top:0px;
+	}
+	.schedule_month button.month_next {
+		position:absolute;
+		left:100%;
+		top:0px;
+		margin-left:-30px;
+	}
+	.schedule_month button.month_today {
+		position:absolute;
+		left:0px;
+		top:36px;
+	}
+	.schedule_month button.month_list {
+		position:absolute;
+		right:50px;
+		top:36px;
+	}
+	.schedule_month button.month_weekend {
+		position:absolute;
+		right:0px;
+		top:36px;
+	}
+	.schedule_table tbody td {
+		min-height:65px;
+		text-align:center;
+	}
+	.schedule_table tbody td a {
+		display:none;
+	}
+	.schedule_table tbody td a:nth-child(2) {
+		width:20px;
+		height:20px;
+		margin:0 auto;
+		background:url('/images/contents/kppa_icon06.png') no-repeat center center;
+		background-size:100% auto;
+		font-size:0px;
+		display:block;
+	}
+	.schedule_table.weekend thead th:nth-child(3) span { display:none; }
+	.schedule_table.weekend thead th:nth-child(3):before {content:'내용'}
+	.schedule_table.weekend thead th:nth-child(4),
+	.schedule_table.weekend thead th:nth-child(5),
+	.schedule_table.weekend thead th:nth-child(6) { display:none; }
+	.schedule_table.weekend thead th:nth-child(1),
+	.schedule_table.weekend thead th:nth-child(2) {width: 15%;}
+	.schedule_table.weekend thead th:nth-child(3){width: 70%;}
+	.schedule_table.weekend .w15p, .weekend .w35p {width: auto;}
+	.schedule_table.weekend tbody td:last-child {border-right:1px solid #ddd;}
+	.schedule_table.weekend tbody td {display:block; min-height: auto; text-align: left;}
+	.schedule_table.weekend tbody td::after{ content:''; display:block; clear:both; }
+	.schedule_table.weekend tbody td::before {font-weight: 400;}
+	
+	/* 월/일 > 시간 이 하나일 경우 (기본 적용)*/
+	.schedule_table.weekend tbody .first_tr td:first-child,
+	.schedule_table.weekend tbody .first_tr td:nth-child(2) {display: table-cell; text-align: center;}
+	.schedule_table.weekend tbody .first_tr td:nth-child(2):before { content:""}
+	.schedule_table.weekend tbody .first_tr td:nth-child(3):before { content:"장소 : ";}
+	.schedule_table.weekend tbody .first_tr td:nth-child(4):before { content:"행사명 : ";}
+	.schedule_table.weekend tbody .first_tr td:nth-child(5):before { content:"주최 : ";}
+	.schedule_table.weekend tbody .first_tr td:nth-child(6):before { content:"참석자 : ";}
+
+	/* 월/일 > 시간 이 두개 이상일 경우 (두번째 일정부터 적용) */
+	.schedule_table.weekend tbody td:first-child {display: table-cell; text-align: center;}
+	.schedule_table.weekend tbody td:nth-child(2):before { content:"장소 : ";}
+	.schedule_table.weekend tbody td:nth-child(3):before { content:"행사명 : ";}
+	.schedule_table.weekend tbody td:nth-child(4):before { content:"주최 : ";}
+	.schedule_table.weekend tbody td:nth-child(5):before { content:"참석자 : ";}
+}
+
+@media (max-width:375px) {
+
+	.schedule_table.weekend thead th:nth-child(2) span { display:none; }
+	.schedule_table.weekend thead th:nth-child(2):before {content:'내용'}
+	.schedule_table.weekend thead th:nth-child(3),
+	.schedule_table.weekend thead th:nth-child(4),
+	.schedule_table.weekend thead th:nth-child(5),
+	.schedule_table.weekend thead th:nth-child(6) { display:none; }
+	.schedule_table.weekend thead th:nth-child(1),
+	.schedule_table.weekend thead th:nth-child(1) {width: 20%;}
+	.schedule_table.weekend thead th:nth-child(2){width: 80%;}
+	.schedule_table.weekend .w15p, .weekend .w35p {width: auto;}
+	.schedule_table.weekend tbody td:last-child {border-right:1px solid #ddd;}
+
+	/* 월/일 > 시간 이 하나일 경우 (기본 적용)*/
+	.schedule_table.weekend tbody .first_tr td:first-child {display: table-cell;}
+	.schedule_table.weekend tbody .first_tr td:nth-child(2) {display: block; text-align: left;}
+	.schedule_table.weekend tbody .first_tr td:first-child::before {content: '';}
+	.schedule_table.weekend tbody .first_tr td:nth-child(2):before { content:"시간 : "}
+	.schedule_table.weekend tbody .first_tr td:nth-child(3):before { content:"장소 : ";}
+	.schedule_table.weekend tbody .first_tr td:nth-child(4):before { content:"행사명 : ";}
+	.schedule_table.weekend tbody .first_tr td:nth-child(5):before { content:"주최 : ";}
+	.schedule_table.weekend tbody .first_tr td:nth-child(6):before { content:"참석자 : ";}
+
+	/* 월/일 > 시간 이 두개 이상일 경우 (두번째 일정부터 적용) */
+	.schedule_table.weekend tbody td:first-child {display: block; text-align: left;}
+	.schedule_table.weekend tbody td:nth-child(1):before { content:"시간 : ";}
+	.schedule_table.weekend tbody td:nth-child(2):before { content:"장소 : ";}
+	.schedule_table.weekend tbody td:nth-child(3):before { content:"행사명 : ";}
+	.schedule_table.weekend tbody td:nth-child(4):before { content:"주최 : ";}
+	.schedule_table.weekend tbody td:nth-child(5):before { content:"참석자 : ";}
+	
+}
